@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Git Extensions")]
+[assembly: AssemblyTitle("Git Extensions (GUBSE)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Git Extensions")]
-[assembly: AssemblyProduct("Git Extensions")]
+[assembly: AssemblyCompany("Git Extensions (GUBSE)")]
+[assembly: AssemblyProduct("Git Extensions (GUBSE)")]
 [assembly: AssemblyCopyright("Copyright © 2008-2019 Git Extensions Team")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

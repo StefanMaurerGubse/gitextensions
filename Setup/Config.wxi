@@ -2,11 +2,11 @@
 <Include>
 
   <?define Manufacturer = "Git Extensions Team" ?>
-  <?define ProductName = "Git Extensions" ?>
-  <?define InstallName = GitExtensions ?>
+  <?define ProductName = "Git Extensions (GUBSE)" ?>
+  <?define InstallName = GitExtensions (GUBSE) ?>
 
-  <?define AppRegKey = "Software\GitExtensions" ?>
-  <?define InstalledRegKey = "Software\GitExtensions\Installed" ?>
+  <?define AppRegKey = "Software\GitExtensions (GUBSE)" ?>
+  <?define InstalledRegKey = "Software\GitExtensions\Installed (GUBSE)" ?>
 
   <!-- upgrade code never changes -->
   <?define UpgradeCode = "140e80ea-5053-42dc-ab0e-6ff0e49e6bcf" ?>
