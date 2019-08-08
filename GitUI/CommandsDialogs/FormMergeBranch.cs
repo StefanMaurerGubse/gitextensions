@@ -82,7 +82,21 @@ namespace GitUI.CommandsDialogs
 
             // SMA 24.06.2019
             // extend message by additional data, e.g. codereview, commit-id, ...
-            string extendedMessageText = GitUI.GUBSE.CommitExtensions.GetExtendedCommitMessage(mergeMessage.Text, commitID.Text, codeReview.Text);
+            string extendedMessageText;
+
+            if (commitID.Enabled)
+            {
+                if (!GUBSE.CommitExtensions.CheckCommitIDAndCodeReview(commitID.Text, codeReview.Text))
+                {
+                    return;
+                }
+
+                extendedMessageText = GUBSE.CommitExtensions.GetExtendedCommitMessage(mergeMessage.Text, commitID.Text, codeReview.Text);
+            }
+            else
+            {
+                extendedMessageText = mergeMessage.Text;
+            }
 
             var successfullyMerged = FormProcess.ShowDialog(this, GitCommandHelpers.MergeBranchCmd(Branches.GetSelectedText(),
                                                                                                    fastForward.Checked,

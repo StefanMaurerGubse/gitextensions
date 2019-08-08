@@ -404,7 +404,7 @@ namespace GitUI.CommandsDialogs
             // a special meaning, and can be dangerous if used inappropriately.
             if (_commitKind == CommitKind.Normal)
             {
-                string extendedMessageText = GitUI.GUBSE.CommitExtensions.GetExtendedCommitMessage(Message.Text, commitID.Text, codeReview.Text);
+                string extendedMessageText = GUBSE.CommitExtensions.GetExtendedCommitMessage(Message.Text, commitID.Text, codeReview.Text);
 
                 _commitMessageManager.MergeOrCommitMessage = extendedMessageText;
                 _commitMessageManager.AmendState = Amend.Checked;
@@ -453,7 +453,7 @@ namespace GitUI.CommandsDialogs
                        splitCommitID = "",
                        splitCodereview = "";
 
-                GitUI.GUBSE.CommitExtensions.SplitExtendedCommitMessage(message, ref splitMessage, ref splitCommitID, ref splitCodereview);
+                GUBSE.CommitExtensions.SplitExtendedCommitMessage(message, ref splitMessage, ref splitCommitID, ref splitCodereview);
 
                 Message.Text = splitMessage; // initial assignment
 
@@ -1372,7 +1372,13 @@ namespace GitUI.CommandsDialogs
                     {
                         // SMA 19.06.2019
                         // extend message by additional data, e.g. codereview, commit-id, ...
-                        string extendedMessageText = GitUI.GUBSE.CommitExtensions.GetExtendedCommitMessage(Message.Text, commitID.Text, codeReview.Text);
+
+                        if (!GUBSE.CommitExtensions.CheckCommitIDAndCodeReview(commitID.Text, codeReview.Text))
+                        {
+                            return;
+                        }
+
+                        string extendedMessageText = GUBSE.CommitExtensions.GetExtendedCommitMessage(Message.Text, commitID.Text, codeReview.Text);
 
                         SetCommitMessageFromTextBox(extendedMessageText);
                     }
@@ -2373,7 +2379,19 @@ namespace GitUI.CommandsDialogs
         {
             if (e.ClickedItem.Tag != null)
             {
-                ReplaceMessage(((string)e.ClickedItem.Tag).Trim());
+                string splitMessage = "",
+                       splitCommitID = "",
+                       splitCodereview = "",
+                       message = ((string)e.ClickedItem.Tag).Trim();
+
+                GUBSE.CommitExtensions.SplitExtendedCommitMessage(message, ref splitMessage, ref splitCommitID, ref splitCodereview);
+
+                Message.Text = splitMessage;
+
+                commitID.Text = splitCommitID;
+                codeReview.Text = splitCodereview;
+
+                // Message.Text = ((string)e.ClickedItem.Tag).Trim();
             }
         }
 
