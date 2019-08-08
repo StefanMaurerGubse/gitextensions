@@ -36,18 +36,20 @@
             this._NO_TRANSLATE_ThanksTo = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.environmentInfo = new GitUI.CommandsDialogs.EnvironmentInfo();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.thanksTimer = new System.Windows.Forms.Timer(this.components);
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.pictureDonate = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureDonate)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,7 +94,7 @@
             this._NO_TRANSLATE_labelProductDescription.Name = "_NO_TRANSLATE_labelProductDescription";
             this._NO_TRANSLATE_labelProductDescription.Size = new System.Drawing.Size(420, 13);
             this._NO_TRANSLATE_labelProductDescription.TabIndex = 1;
-            this._NO_TRANSLATE_labelProductDescription.Text = "Visual Studio and Shell Explorer Extensions for Git";
+            this._NO_TRANSLATE_labelProductDescription.Text = "Visual Studio and Shell Explorer Extensions for Git (GUBSE Edition)";
             this._NO_TRANSLATE_labelProductDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // _NO_TRANSLATE_labelProductName
@@ -115,7 +117,7 @@
             this.linkLabelIcons.AutoSize = true;
             this.linkLabelIcons.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabelIcons.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.linkLabelIcons.Location = new System.Drawing.Point(12, 92);
+            this.linkLabelIcons.Location = new System.Drawing.Point(12, 90);
             this.linkLabelIcons.Margin = new System.Windows.Forms.Padding(0);
             this.linkLabelIcons.Name = "linkLabelIcons";
             this.linkLabelIcons.Size = new System.Drawing.Size(213, 13);
@@ -131,18 +133,18 @@
             this._NO_TRANSLATE_labelCopyright.Location = new System.Drawing.Point(12, 64);
             this._NO_TRANSLATE_labelCopyright.Margin = new System.Windows.Forms.Padding(0);
             this._NO_TRANSLATE_labelCopyright.Name = "_NO_TRANSLATE_labelCopyright";
-            this._NO_TRANSLATE_labelCopyright.Size = new System.Drawing.Size(420, 15);
+            this._NO_TRANSLATE_labelCopyright.Size = new System.Drawing.Size(420, 13);
             this._NO_TRANSLATE_labelCopyright.TabIndex = 2;
             this._NO_TRANSLATE_labelCopyright.Text = "Proudly presented by Henk Westhuis and Team";
             this._NO_TRANSLATE_labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // thanksTo
+            // _NO_TRANSLATE_ThanksTo
             // 
             this._NO_TRANSLATE_ThanksTo.AutoSize = true;
             this._NO_TRANSLATE_ThanksTo.Cursor = System.Windows.Forms.Cursors.Hand;
             this._NO_TRANSLATE_ThanksTo.Dock = System.Windows.Forms.DockStyle.Fill;
             this._NO_TRANSLATE_ThanksTo.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this._NO_TRANSLATE_ThanksTo.Location = new System.Drawing.Point(12, 79);
+            this._NO_TRANSLATE_ThanksTo.Location = new System.Drawing.Point(12, 77);
             this._NO_TRANSLATE_ThanksTo.Margin = new System.Windows.Forms.Padding(0);
             this._NO_TRANSLATE_ThanksTo.Name = "_NO_TRANSLATE_ThanksTo";
             this._NO_TRANSLATE_ThanksTo.Size = new System.Drawing.Size(420, 13);
@@ -156,10 +158,10 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label1.Location = new System.Drawing.Point(12, 220);
+            this.label1.Location = new System.Drawing.Point(12, 223);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(420, 86);
+            this.label1.Size = new System.Drawing.Size(420, 83);
             this.label1.TabIndex = 6;
             this.label1.Text = "This program is distributed in the hope that it will be useful, but WITHOUT ANY W" +
     "ARRANTY; without even the implied warranty of MERCHANTABILITY of FITNESS FOR A P" +
@@ -170,10 +172,11 @@
             this.environmentInfo.AutoSize = true;
             this.environmentInfo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.environmentInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.environmentInfo.Location = new System.Drawing.Point(15, 108);
+            this.environmentInfo.Location = new System.Drawing.Point(12, 103);
+            this.environmentInfo.Margin = new System.Windows.Forms.Padding(0);
             this.environmentInfo.Name = "environmentInfo";
             this.environmentInfo.Padding = new System.Windows.Forms.Padding(0, 12, 0, 4);
-            this.environmentInfo.Size = new System.Drawing.Size(414, 101);
+            this.environmentInfo.Size = new System.Drawing.Size(420, 112);
             this.environmentInfo.TabIndex = 5;
             this.environmentInfo.ToolTip = this.toolTip;
             // 
@@ -197,7 +200,7 @@
             this.pictureDonate.BackgroundImage = global::GitUI.Properties.Images.DonateBadge;
             this.pictureDonate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureDonate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureDonate.Location = new System.Drawing.Point(6, 164);
+            this.pictureDonate.Location = new System.Drawing.Point(6, 198);
             this.pictureDonate.Margin = new System.Windows.Forms.Padding(6, 12, 6, 4);
             this.pictureDonate.Name = "pictureDonate";
             this.pictureDonate.Size = new System.Drawing.Size(145, 32);
@@ -207,23 +210,24 @@
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 156);
             this.label2.Margin = new System.Windows.Forms.Padding(12, 4, 12, 4);
+            this.label2.MaximumSize = new System.Drawing.Size(133, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 30);
+            this.label2.Size = new System.Drawing.Size(133, 26);
             this.label2.TabIndex = 0;
             this.label2.Text = "Git Extensions is open source. Get involved!";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.AutoSize = true;
-            this.label2.MaximumSize = new System.Drawing.Size(133, 0);
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.logoPictureBox);
             this.flowLayoutPanel1.Controls.Add(this.label2);
             this.flowLayoutPanel1.Controls.Add(this.pictureDonate);
+            this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -231,6 +235,19 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(157, 318);
             this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::GitUI.Properties.Resources.SIHOT_Flosse;
+            this.pictureBox1.InitialImage = global::GitUI.Properties.Resources.SIHOT_Flosse;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 246);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(133, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -262,6 +279,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureDonate)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -284,5 +302,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolTip toolTip;
         private GitUI.CommandsDialogs.EnvironmentInfo environmentInfo;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

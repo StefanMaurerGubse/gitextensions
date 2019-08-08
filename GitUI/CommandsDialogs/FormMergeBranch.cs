@@ -80,13 +80,17 @@ namespace GitUI.CommandsDialogs
             AppSettings.DontCommitMerge = noCommit.Checked;
             ScriptManager.RunEventScripts(this, ScriptEvent.BeforeMerge);
 
+            // SMA 24.06.2019
+            // extend message by additional data, e.g. codereview, commit-id, ...
+            string extendedMessageText = GitUI.GUBSE.CommitExtensions.GetExtendedCommitMessage(mergeMessage.Text, commitID.Text, codeReview.Text);
+
             var successfullyMerged = FormProcess.ShowDialog(this, GitCommandHelpers.MergeBranchCmd(Branches.GetSelectedText(),
                                                                                                    fastForward.Checked,
                                                                                                    squash.Checked,
                                                                                                    noCommit.Checked,
                                                                                                    _NO_TRANSLATE_mergeStrategy.Text,
                                                                                                    allowUnrelatedHistories.Checked,
-                                                                                                   addMergeMessage.Checked ? mergeMessage.Text : null,
+                                                                                                   addMergeMessage.Checked ? extendedMessageText : null,
                                                                                                    addLogMessages.Checked ? (int)nbMessages.Value : (int?)null));
 
             var wasConflict = MergeConflictHandler.HandleMergeConflicts(UICommands, this, !noCommit.Checked);
@@ -148,6 +152,10 @@ namespace GitUI.CommandsDialogs
         private void addMergeMessage_CheckedChanged(object sender, EventArgs e)
         {
             mergeMessage.Enabled = addMergeMessage.Checked;
+            codeReviewLabel.Enabled = addMergeMessage.Checked;
+            codeReview.Enabled = addMergeMessage.Checked;
+            commitIDLabel.Enabled = addMergeMessage.Checked;
+            commitID.Enabled = addMergeMessage.Checked;
         }
 
         private void nbMessages_ValueChanged(object sender, EventArgs e)

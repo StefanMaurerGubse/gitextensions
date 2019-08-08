@@ -404,7 +404,9 @@ namespace GitUI.CommandsDialogs
             // a special meaning, and can be dangerous if used inappropriately.
             if (_commitKind == CommitKind.Normal)
             {
-                _commitMessageManager.MergeOrCommitMessage = Message.Text;
+                string extendedMessageText = GitUI.GUBSE.CommitExtensions.GetExtendedCommitMessage(Message.Text, commitID.Text, codeReview.Text);
+
+                _commitMessageManager.MergeOrCommitMessage = extendedMessageText;
                 _commitMessageManager.AmendState = Amend.Checked;
             }
 
@@ -447,7 +449,16 @@ namespace GitUI.CommandsDialogs
 
             if (_useFormCommitMessage && !string.IsNullOrEmpty(message))
             {
-                Message.Text = message; // initial assignment
+                string splitMessage = "",
+                       splitCommitID = "",
+                       splitCodereview = "";
+
+                GitUI.GUBSE.CommitExtensions.SplitExtendedCommitMessage(message, ref splitMessage, ref splitCommitID, ref splitCodereview);
+
+                Message.Text = splitMessage; // initial assignment
+
+                commitID.Text = splitCommitID;
+                codeReview.Text = splitCodereview;
             }
             else
             {
@@ -1359,7 +1370,11 @@ namespace GitUI.CommandsDialogs
                 {
                     if (_useFormCommitMessage)
                     {
-                        SetCommitMessageFromTextBox(Message.Text);
+                        // SMA 19.06.2019
+                        // extend message by additional data, e.g. codereview, commit-id, ...
+                        string extendedMessageText = GitUI.GUBSE.CommitExtensions.GetExtendedCommitMessage(Message.Text, commitID.Text, codeReview.Text);
+
+                        SetCommitMessageFromTextBox(extendedMessageText);
                     }
 
                     ScriptManager.RunEventScripts(this, ScriptEvent.BeforeCommit);
@@ -1493,8 +1508,17 @@ namespace GitUI.CommandsDialogs
         {
             if (Message.Text != message)
             {
+                string splitMessage = "",
+                       splitCommitID = "",
+                       splitCodereview = "";
+
+                GitUI.GUBSE.CommitExtensions.SplitExtendedCommitMessage(message, ref splitMessage, ref splitCommitID, ref splitCodereview);
+
                 Message.SelectAll();
-                Message.SelectedText = message;
+                Message.SelectedText = splitMessage;
+
+                commitID.Text = splitCommitID;
+                codeReview.Text = splitCodereview;
             }
         }
 

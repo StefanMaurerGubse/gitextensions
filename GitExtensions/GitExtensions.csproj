@@ -44,6 +44,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <CodeAnalysisRuleSet>..\GitExtensions.ruleset</CodeAnalysisRuleSet>
     <DocumentationFile>bin\Release\GitExtensions.xml</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>

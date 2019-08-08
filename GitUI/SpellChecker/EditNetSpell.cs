@@ -378,7 +378,11 @@ namespace GitUI.SpellChecker
 
             InitializeAutoCompleteWordsTask();
 
-            ThreadHelper.JoinableTaskFactory.RunAsync(
+            // avoid exception when opening this with the designer
+            // https://stackoverflow.com/questions/9579544/system-componentmodel-design-exceptioncollection
+            if (!DesignMode)
+            {
+                ThreadHelper.JoinableTaskFactory.RunAsync(
                 async () =>
                 {
                     var words = await _autoCompleteListTask.GetValueAsync();
@@ -386,6 +390,7 @@ namespace GitUI.SpellChecker
 
                     _spelling.AddAutoCompleteWords(words.Select(x => x.Word));
                 });
+            }
         }
 
         private void SpellingMisspelledWord(object sender, SpellingEventArgs e)

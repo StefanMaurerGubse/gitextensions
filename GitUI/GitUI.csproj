@@ -341,6 +341,7 @@
     <Compile Include="Editor\RebaseTodoHighlightingStrategy.cs" />
     <Compile Include="FindFilePredicateProvider.cs" />
     <Compile Include="Infrastructure\Telemetry\MonitorsTelemetryInitializer.cs" />
+    <Compile Include="GUBSE\CommitExtensions.cs" />
     <Compile Include="NBugReports\BugReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1879,6 +1880,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Icons\Blame.png" />
+    <None Include="Resources\SIHOT-Flosse1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Icons\FileStatusAdded.png" />
